@@ -1,0 +1,144 @@
+================================================================================
+  BONUS: REAL-WORLD EDITING CHALLENGES
+  File: 09_challenges.txt
+  (Do these after completing lessons 1-7)
+================================================================================
+
+Rules:
+  - No mouse
+  - No arrow keys
+  - Try to solve each challenge in as FEW keystrokes as possible
+  - Check the "Efficient Solution" hint only after you try
+
+================================================================================
+  CHALLENGE 1: Fix the typos
+================================================================================
+
+Each line has a typo. Fix them all.
+
+  Thiss file has many errros in it.
+  The quikc brown fox jumpd over.
+  Neovim is a powerfull text editro.
+  Learnning takes tim but its wroth it.
+
+Hint: use  /  to find the typo, then  cw  to fix it, then  n.  for the next.
+
+================================================================================
+  CHALLENGE 2: Reformat the list
+================================================================================
+
+This list uses dashes. Change every "-" to "*" and add 2 spaces of indent.
+(Hint: :%s/- /  * /g  for the replace, then  >  for indent)
+
+- item one
+- item two
+- item three
+- item four
+- item five
+
+================================================================================
+  CHALLENGE 3: Duplicate and modify
+================================================================================
+
+Take the function template below and create 5 versions of it,
+each with a different name (add, subtract, multiply, divide, modulo).
+Use  yy  to copy and  p  to paste, then  cw  to rename.
+
+function_name(a, b):
+    return a operation b
+
+================================================================================
+  CHALLENGE 4: Delete the junk lines
+================================================================================
+
+Delete only the lines that start with "JUNK:" and keep everything else.
+(You'll need to use  dd  on each junk line, or search for JUNK with  /JUNK  then  dd  then  n  then  dd...)
+
+  JUNK: garbage line one
+  Keep this line: it has useful info
+  JUNK: garbage line two
+  Keep this line: also useful
+  JUNK: garbage line three
+  Keep this: the last useful line
+  JUNK: garbage line four
+
+================================================================================
+  CHALLENGE 5: Multi-file task
+================================================================================
+
+This challenge spans multiple files. Open a vertical split and work in both.
+
+  Step 1: Open  scratch.txt  in a vertical split:  :vsp scratch.txt
+  Step 2: In scratch.txt, write a short poem (3 lines) in Insert mode
+  Step 3: Switch to this window with  Ctrl+w h
+  Step 4: Copy the first two lines of Challenge 1 above with  2yy
+  Step 5: Switch to scratch.txt with  Ctrl+w l
+  Step 6: Paste below the poem with  p
+  Step 7: Save scratch.txt with  :w  and come back here
+
+================================================================================
+  CHALLENGE 6: Navigation speed run
+================================================================================
+
+Starting from the TOP of this file (press  gg  now), race to do this:
+
+  1. Jump to the bottom with  G
+  2. Jump back to the top with  gg
+  3. Search for "CHALLENGE 3" with  /CHALLENGE 3  ENTER
+  4. Jump to end of that line with  $
+  5. Jump to the word "function_name" with  *  (while cursor is on it)
+  6. Set a mark 'z' there with  mz
+  7. Go to bottom of file with  G
+  8. Jump back to the mark with  'z
+
+================================================================================
+  CHALLENGE 7: The :s power move
+================================================================================
+
+Replace ALL occurrences of "foo" with "bar" in this block,
+then replace ALL occurrences of "baz" with "qux",
+using a single :%s command for each.
+
+  foo = foo + baz
+  result = foo(baz, foo)
+  if foo > baz:
+      return foo - baz
+  foo.baz = baz.foo
+
+================================================================================
+  CHALLENGE 8: Window layout
+================================================================================
+
+Recreate this exact window layout using splits:
+
+  ┌──────────────┬──────────────┐
+  │              │              │
+  │ 01_modes.txt │ 08_quick_ref │
+  │              │              │
+  ├──────────────┤              │
+  │              │              │
+  │ 04_search.txt│              │
+  │              │              │
+  └──────────────┴──────────────┘
+
+Steps:
+  1. Close all splits:  Ctrl+w o
+  2. Open  08_quick_ref.txt  in a vertical split on the right:  :vsp 08_quick_ref.txt
+  3. Move to left window:  Ctrl+w h
+  4. Open  01_modes.txt  here:  :e 01_modes.txt
+  5. Split horizontally:  :sp 04_search.txt
+  6. Done! Navigate between all 3 with  Ctrl+w w
+
+================================================================================
+  YOU MADE IT!
+================================================================================
+
+If you completed these challenges, you have a solid foundation in nvim.
+
+Next steps:
+  - Learn about REGISTERS  (:help registers)
+  - Learn TEXT OBJECTS  (diw, ci", da(, etc.) — these are huge
+  - Learn MACROS  (qa...q then @a to replay)
+  - Explore nvim config  (~/.config/nvim/init.lua  or  init.vim)
+
+The journey into nvim is long but deeply rewarding. Keep going!

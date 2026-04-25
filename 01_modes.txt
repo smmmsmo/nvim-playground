@@ -1,0 +1,80 @@
+================================================================================
+  LESSON 1: THE FOUR MODES
+  File: 01_modes.txt
+================================================================================
+
+WHY MODES EXIST
+---------------
+Most editors have ONE mode: you type and characters appear.
+Neovim has MODES. Each mode gives your keys a different job.
+This is the single most important concept to internalize.
+
+THE FOUR MODES YOU'LL USE EVERY DAY
+-------------------------------------
+
+  MODE          HOW TO GET THERE        WHAT YOUR KEYS DO
+  ──────────────────────────────────────────────────────────
+  NORMAL        <Esc>  (always works)   Move, delete, copy, search
+  INSERT        i                       Type text (like a normal editor)
+  VISUAL        v                       Select text
+  COMMAND       :                       Run editor commands
+
+IMPORTANT: nvim starts in NORMAL mode.
+
+GETTING IN AND OUT
+-------------------
+  Press  i      → enter INSERT  (cursor moves into text)
+  Press  <Esc>  → back to NORMAL
+  Press  v      → enter VISUAL
+  Press  <Esc>  → back to NORMAL
+  Press  :      → enter COMMAND (a : appears at the bottom)
+  Press  <Esc>  → cancel command, back to NORMAL
+
+CONFUSED ABOUT WHICH MODE YOU'RE IN?
+--------------------------------------
+Look at the BOTTOM-LEFT of the screen:
+  -- INSERT --    you are in Insert mode
+  -- VISUAL --    you are in Visual mode
+  (nothing)       you are in Normal mode
+
+The BOTTOM LINE showing a colon  :  means Command mode.
+
+================================================================================
+  PRACTICE ZONE 1 — Modes
+================================================================================
+
+EXERCISE A: Enter and escape Insert mode 5 times
+  1. Press  i   (you should see -- INSERT -- at bottom)
+  2. Press  <Esc>  (-- INSERT -- disappears)
+  3. Repeat 5 times until it feels automatic.
+
+EXERCISE B: Type something, then undo it
+  1. Press  i
+  2. Type:   Hello nvim!
+  3. Press  <Esc>
+  4. Press  u   (undo — the text vanishes)
+  5. Press  Ctrl+r  (redo — the text comes back)
+
+EXERCISE C: Practice the mode cycle
+  Go:  Normal → Insert → Normal → Visual → Normal → Command → Normal
+  Use: i  →  Esc  →  v  →  Esc  →  :  →  Esc
+
+SANDBOX — type anything below this line and then undo it:
+────────────────────────────────────────────────────────────────────────────────
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+  CHECKPOINT 1
+================================================================================
+
+Before moving on, make sure you can answer YES to all of these:
+
+  [ ] I can enter Insert mode with  i
+  [ ] I can return to Normal mode with  <Esc>
+  [ ] I know to look at the bottom-left to see which mode I'm in
+  [ ] I can undo with  u  and redo with  Ctrl+r
+
+NEXT LESSON: Open  02_moving_around.txt
+  Type:  :e 02_moving_around.txt  then press ENTER

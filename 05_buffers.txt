@@ -1,0 +1,111 @@
+================================================================================
+  LESSON 5: BUFFERS — Opening & Switching Files
+  File: 05_buffers.txt
+================================================================================
+
+WHAT IS A BUFFER?
+------------------
+When you open a file in nvim, it loads into a BUFFER.
+A buffer is just a file loaded in memory.
+You can have MANY buffers open at once — one per file.
+Think of buffers like browser tabs, except they're invisible by default.
+
+OPENING FILES
+--------------
+  :e filename        open (edit) a file              e = edit
+  :e 01_modes.txt    open 01_modes.txt
+  :e .               open the file explorer (netrw) for current directory
+
+LISTING YOUR OPEN BUFFERS
+--------------------------
+  :ls    show all open buffers
+  :buffers  (same thing, longer form)
+
+The output looks like:
+    1  %a   "01_modes.txt"     line 1
+    2       "02_moving_around.txt"  line 1
+    3  #    "03_editing.txt"   line 14
+
+  %   = current buffer (you are here)
+  #   = alternate buffer (previous file you visited)
+  a   = active (loaded and visible)
+
+SWITCHING BETWEEN BUFFERS
+--------------------------
+  :b2          switch to buffer number 2
+  :b filename  switch to buffer by name (Tab to autocomplete!)
+  :bn          next buffer     (n = next)
+  :bp          previous buffer (p = previous)
+  Ctrl+^       toggle to the ALTERNATE buffer (# in :ls)  ← USE THIS A LOT!
+  Ctrl+6       same as Ctrl+^ on some keyboards
+
+Ctrl+^ is your fastest way to ping-pong between two files.
+Think of it as "go back to where I just was."
+
+CLOSING BUFFERS
+----------------
+  :bd          close (delete) current buffer
+  :bd filename close a specific buffer
+  :q           quit current window (also closes buffer if it's the only window)
+
+SAVING FILES
+-------------
+  :w           write (save) current buffer
+  :wa          write ALL buffers
+  :wq          write and quit
+  :q!          quit WITHOUT saving (the ! forces it)
+  ZZ           save and quit (shortcut for :wq — two capital Zs)
+  ZQ           quit without saving (shortcut for :q!)
+
+================================================================================
+  PRACTICE ZONE 5 — Buffers
+================================================================================
+
+EXERCISE A: Open multiple files, then list them
+  1. Type  :e 01_modes.txt  ENTER  (opens lesson 1)
+  2. Type  :e 02_moving_around.txt  ENTER  (opens lesson 2)
+  3. Type  :e 03_editing.txt  ENTER  (opens lesson 3)
+  4. Type  :ls  ENTER  to see all three buffers listed
+  5. Type  :b 01_modes.txt  ENTER  to jump to lesson 1
+  6. Type  Ctrl+^  to toggle back to lesson 3
+
+EXERCISE B: The Ctrl+^ ping-pong
+  1. Open  04_search.txt  with  :e 04_search.txt  ENTER
+  2. Open  05_buffers.txt  with  :e 05_buffers.txt  ENTER
+  3. Now press  Ctrl+^  — you're back in 04_search.txt
+  4. Press  Ctrl+^  again — you're back in 05_buffers.txt
+  Do this 10 times. This is a skill you'll use constantly.
+
+EXERCISE C: Tab autocomplete for buffer names
+  1. Type  :b 0  then press  <Tab>
+  2. nvim will show/cycle through files that start with 0
+  3. Keep pressing Tab to cycle, ENTER to open
+
+EXERCISE D: Close buffers cleanly
+  1. Type  :ls  to see how many buffers you have open
+  2. Type  :bd 01_modes.txt  to close lesson 1
+  3. Type  :ls  again — notice it's gone from the list
+
+SCRATCH AREA — notes from your buffer practice:
+────────────────────────────────────────────────────────────────────────────────
+Which buffer commands did you find most useful?
+
+
+
+What is Ctrl+^ good for?
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+  CHECKPOINT 5
+================================================================================
+
+  [ ] I can open a file with  :e filename
+  [ ] I can see all open buffers with  :ls
+  [ ] I can switch between buffers with  :b name  or  :bn / :bp
+  [ ] I use  Ctrl+^  to toggle between the last two files
+  [ ] I can save with  :w  and close with  :bd
+
+NEXT LESSON: Type  :e 06_windows.txt  then ENTER

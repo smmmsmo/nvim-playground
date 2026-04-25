@@ -1,0 +1,131 @@
+================================================================================
+  LESSON 3: EDITING TEXT
+  File: 03_editing.txt
+================================================================================
+
+ENTERING INSERT MODE — more than just  i
+─────────────────────────────────────────
+
+  i   Insert BEFORE cursor
+  a   Append AFTER cursor          (very common!)
+  I   Insert at start of line      (capital i)
+  A   Append at end of line        (capital A — extremely useful)
+  o   Open new line BELOW, enter Insert
+  O   Open new line ABOVE, enter Insert   (capital o)
+
+Practice: position cursor anywhere on this line, then try each one.
+  → fix this line  (try: A to append at end, I to insert at start, o for new line)
+
+─── DELETING ───────────────────────────────────────────────────────────────────
+
+  x     delete character under cursor
+  dw    delete from cursor to end of word
+  db    delete from cursor back to start of word
+  dd    delete the entire current line
+  d$    delete from cursor to end of line
+  d0    delete from cursor to start of line
+
+IMPORTANT: deleted text goes into a REGISTER (like a clipboard).
+           You can paste it back with  p  (after cursor) or  P  (before).
+
+Practice deletions on these lines:
+  deleteme_word  keepthis  deleteme_word
+  Delete this entire line with dd
+  Keep start, DELETETHISdelete_from_here_to_end with d$
+
+─── CHANGING ────────────────────────────────────────────────────────────────────
+
+  cw    delete word then enter Insert   (Change Word)
+  cc    delete line then enter Insert   (Change Line)
+  c$    delete to end of line, enter Insert
+  C     same as c$  (shortcut)
+  s     delete char under cursor, enter Insert   (Substitute)
+
+"Change" = delete + immediately enter Insert mode.
+
+Practice: change the WRONG word to RIGHT on each line:
+  This is WRONG and should be fixed
+  FIXME this entire line needs to be retyped
+  The quick XXXXX fox (change XXXXX to brown)
+
+─── COPYING & PASTING ───────────────────────────────────────────────────────────
+
+  yy    yank (copy) current line
+  yw    yank from cursor to end of word
+  y$    yank to end of line
+  p     paste AFTER cursor / below current line
+  P     paste BEFORE cursor / above current line
+
+Practice:
+  1. Put cursor on the line that says COPY ME below
+  2. Press  yy   (copies the line)
+  3. Move down 3 lines
+  4. Press  p    (pastes below)
+
+  COPY ME ← yank this line, paste it 3 lines below
+
+  (paste here ↓)
+
+
+
+─── UNDO & REDO ─────────────────────────────────────────────────────────────────
+
+  u       undo last change
+  Ctrl+r  redo (un-undo)
+  U       undo all changes on current line
+
+Undo is unlimited. Don't fear making mistakes — just press  u.
+
+─── REPEAT THE LAST CHANGE ──────────────────────────────────────────────────────
+
+  .   (dot) repeats whatever you last did in Normal mode
+
+This is one of the most powerful keys in nvim!
+Example: if you just did  dw  to delete a word, press  .  to delete the next.
+
+Practice:
+  1. Put cursor on "DELETE" in the line below
+  2. Press  dw  to delete it
+  3. Move to the next "DELETE" with  w  or  /DELETE
+  4. Press  .   to delete that one too (dot repeat!)
+
+  Remove DELETE this DELETE word DELETE from DELETE each DELETE place
+
+================================================================================
+  PRACTICE ZONE 3 — Editing
+================================================================================
+
+EXERCISE A: Fix these broken lines (use cw, dd, x, A, etc.)
+  Thhis line hhas extra letterss
+  This line is missing its ending
+  deleteme This line starts with garbage
+  The last word is WRONG_WORD
+
+EXERCISE B: Build a list
+  1. Press  o  below the "START" marker to open a new line
+  2. Type a list item, press  <Esc>
+  3. Press  .  wait — . only repeats the last change, so press  o  again
+  4. Practice  o  / type / Esc  three more times
+
+  START → list goes below:
+
+
+EXERCISE C: Copy-paste practice
+  - Yank the "Template:" line below with  yy
+  - Paste it 4 times below it with  p  (press p 4 times)
+  - Then edit each copy with  cw  to change "Template" to something unique
+
+  Template: item goes here
+
+================================================================================
+  CHECKPOINT 3
+================================================================================
+
+  [ ] I can enter insert mode in 6 different ways (i a I A o O)
+  [ ] I can delete with x, dw, dd, d$
+  [ ] I can change with cw, cc, C, s
+  [ ] I can yank and paste with yy, p, P
+  [ ] I know how to undo with u and redo with Ctrl+r
+  [ ] I use the dot  .  to repeat my last change
+
+NEXT LESSON: Type  :e 04_search.txt  then ENTER

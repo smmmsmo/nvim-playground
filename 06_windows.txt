@@ -1,0 +1,113 @@
+================================================================================
+  LESSON 6: WINDOWS — Splitting the Screen
+  File: 06_windows.txt
+================================================================================
+
+WHAT IS A WINDOW?
+------------------
+A WINDOW is a viewport into a buffer.
+You can split your screen into multiple windows, each showing a different file
+(or even the same file at two different spots — very handy for long files!).
+
+  Buffer = file in memory
+  Window = a visible pane showing a buffer
+  Tab    = a collection of windows (different from browser tabs!)
+
+SPLITTING WINDOWS
+------------------
+  :split   or  :sp    split HORIZONTALLY (new window on top)
+  :vsplit  or  :vsp   split VERTICALLY   (new window on the side)
+
+After splitting, both windows show the SAME buffer.
+Then use  :e filename  in the new window to open a different file.
+
+Shortcut while in Normal mode:
+  Ctrl+w s   horizontal split  (same as :sp)
+  Ctrl+w v   vertical split    (same as :vsp)
+
+MOVING BETWEEN WINDOWS
+-----------------------
+  Ctrl+w h   move to window on the LEFT
+  Ctrl+w l   move to window on the RIGHT
+  Ctrl+w j   move to window BELOW
+  Ctrl+w k   move to window ABOVE
+  Ctrl+w w   cycle to NEXT window   (fast toggle when you have 2)
+
+Think of it as:  Ctrl+w  then a direction (hjkl).
+
+RESIZING WINDOWS
+-----------------
+  Ctrl+w =   make all windows EQUAL size
+  Ctrl+w >   increase width
+  Ctrl+w <   decrease width
+  Ctrl+w +   increase height
+  Ctrl+w -   decrease height
+
+CLOSING WINDOWS
+----------------
+  Ctrl+w c   close current window  (c = close)
+  Ctrl+w o   close ALL OTHER windows, keep only current one  (o = only)
+  :q         quit current window
+
+OPENING A FILE IN A SPLIT DIRECTLY
+------------------------------------
+  :sp filename    open file in a horizontal split
+  :vsp filename   open file in a vertical split
+
+================================================================================
+  PRACTICE ZONE 6 — Windows
+================================================================================
+
+EXERCISE A: Side-by-side comparison
+  1. You are in  06_windows.txt
+  2. Type  :vsp 02_moving_around.txt  ENTER
+  3. You now have two files side by side!
+  4. Press  Ctrl+w h  to move to the left window
+  5. Press  Ctrl+w l  to move to the right window
+  6. Ping-pong 5 times with  Ctrl+w w
+
+EXERCISE B: Three-way split (reading while editing)
+  1. Start from just this file (close extras with  Ctrl+w o)
+  2. Type  :sp 04_search.txt  ENTER  (horizontal split on top)
+  3. Type  Ctrl+w w  to move to the new top window
+  4. Type  :vsp 03_editing.txt  ENTER  (vertical split in top half)
+  5. You now have 3 windows. Navigate between them with  Ctrl+w w
+
+EXERCISE C: Equalize and close
+  1. With any split layout open, press  Ctrl+w =  to equalize sizes
+  2. Navigate to a window you don't need
+  3. Press  Ctrl+w c  to close it
+  4. Navigate to another
+  5. Press  Ctrl+w o  to close everything except where you are
+
+WINDOW LAYOUT REFERENCE
+  ┌─────────┬─────────┐        ┌───────────────────┐
+  │         │         │        │   top window       │
+  │ window  │ window  │        ├───────────────────┤
+  │    1    │    2    │        │   bottom window    │
+  └─────────┴─────────┘        └───────────────────┘
+    :vsp (vertical)               :sp (horizontal)
+
+NOTES from your window practice:
+────────────────────────────────────────────────────────────────────────────────
+Which split type do you prefer (horizontal or vertical)?
+
+
+
+Which Ctrl+w command will you use most?
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+  CHECKPOINT 6
+================================================================================
+
+  [ ] I can split horizontally with  :sp  or  Ctrl+w s
+  [ ] I can split vertically with  :vsp  or  Ctrl+w v
+  [ ] I can move between windows with  Ctrl+w hjkl  or  Ctrl+w w
+  [ ] I can close the current window with  Ctrl+w c
+  [ ] I can open a file directly in a split with  :vsp filename
+
+NEXT LESSON: Type  :e 07_files_nav.txt  then ENTER

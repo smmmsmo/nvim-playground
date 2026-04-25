@@ -1,0 +1,130 @@
+================================================================================
+  LESSON 7: NAVIGATING FILES — netrw & the File System
+  File: 07_files_nav.txt
+================================================================================
+
+NETRW — nvim's built-in file explorer
+---------------------------------------
+nvim ships with a file browser called NETRW. No plugins needed.
+
+OPENING NETRW
+--------------
+  :Ex          open netrw in the current window      (Ex = Explore)
+  :Sex         open netrw in a horizontal split      (Sex = Split Explore)
+  :Vex         open netrw in a vertical split        (Vex = Vertical Explore)
+  :e .         open netrw for the current directory  (dot = current dir)
+  :e path/     open netrw for a specific directory
+
+When you launched  nvim .  at the start, that opened netrw!
+
+NAVIGATING INSIDE NETRW
+------------------------
+  j / k        move up and down the file list
+  ENTER        open the file/directory under cursor
+  -            go UP one directory (to parent)
+  %            create a NEW FILE
+  d            create a NEW DIRECTORY
+  D            delete file/directory under cursor
+  R            rename file/directory under cursor
+  i            cycle through listing styles (thin, long, wide, tree)
+
+QUICK FILE OPENING TRICKS
+--------------------------
+  :e Tab       press Tab after :e to trigger filename autocomplete!
+  :e *.txt Tab nvim will show matching files
+
+Practice now:
+  1. Type  :e   then press  <Tab>  — you'll see file suggestions
+  2. Press  <Tab>  multiple times to cycle through files
+  3. Press  ENTER  to open the highlighted one
+
+THE CURRENT DIRECTORY
+----------------------
+  :pwd         show the current working directory
+  :cd path     change the current directory
+  :cd %:h      change to the directory of the CURRENT FILE  (very useful!)
+
+  %            in command mode, % means "the current file's path"
+  %:h          means "the directory containing the current file"
+
+MARKS — Bookmarking positions across files
+-------------------------------------------
+A MARK saves a position (file + line) you can jump back to.
+
+  ma           set mark named 'a' at cursor position
+  mb           set mark named 'b'  (use any letter a-z or A-Z)
+  'a           jump to mark 'a' (to the start of the marked line)
+  `a           jump to the EXACT position of mark 'a' (backtick)
+  ''           jump to where you were BEFORE the last big jump  (two single quotes)
+  :marks       list all your marks
+
+Lowercase marks (a-z) are LOCAL to a file.
+Uppercase marks (A-Z) are GLOBAL — they work ACROSS files!
+
+  mA           set global mark 'A' in the current file
+  'A           from ANY file, jump back to where you set 'A'
+
+Global marks are powerful for jumping between files instantly.
+
+JUMPING BACK
+-------------
+  Ctrl+o   jump to the OLDER position in your jump list  (back)
+  Ctrl+i   jump to the NEWER position in your jump list  (forward)
+
+Every time you make a big jump (gg, G, /, ?, etc.) nvim records it.
+Ctrl+o / Ctrl+i let you walk back and forward through your jump history.
+This works ACROSS files — it's like browser back/forward for your cursor.
+
+  :jumps   see your full jump history
+
+================================================================================
+  PRACTICE ZONE 7 — File Navigation
+================================================================================
+
+EXERCISE A: netrw exploration
+  1. Type  :Ex  ENTER  to open netrw
+  2. Press  j  and  k  to move around
+  3. Press  ENTER  on  03_editing.txt  to open it
+  4. Press  Ctrl+o  to jump back to where you were (07_files_nav.txt)
+
+EXERCISE B: Global marks (cross-file bookmarks)
+  1. You are in  07_files_nav.txt
+  2. Press  mH  to set a global mark 'H' here  (H for Home)
+  3. Type  :e 01_modes.txt  ENTER
+  4. Scroll somewhere in the middle of the file
+  5. Press  'H  — you jump straight back to  07_files_nav.txt!
+
+EXERCISE C: Jump history
+  1. Open 3 different files with  :e filename  (any files from the playground)
+  2. Move around inside each file
+  3. Press  Ctrl+o  repeatedly — notice it walks you backwards through all
+     the files and positions you visited
+  4. Press  Ctrl+i  to go forward again
+
+EXERCISE D: File autocomplete
+  Practice using Tab to complete file names:
+  1. Type  :e 0  then Tab  — see it complete to one of the 0x files
+  2. Type  :e   then Tab Tab Tab  — cycle through all files
+
+QUICK REFERENCE: Opening files summary
+────────────────────────────────────────
+  :e filename     open a file
+  :Ex             open file explorer
+  :vsp filename   open file in vertical split
+  :sp filename    open file in horizontal split
+  Ctrl+^          toggle to last file
+  'A              jump to global mark A
+  Ctrl+o          jump back in history
+────────────────────────────────────────
+
+================================================================================
+  CHECKPOINT 7
+================================================================================
+
+  [ ] I can open netrw with  :Ex  and navigate it with j/k/ENTER/-
+  [ ] I can open files with  :e  and use Tab for autocomplete
+  [ ] I set local marks with  m{letter}  and jump to them with  '{letter}
+  [ ] I set GLOBAL marks (uppercase) to jump between files
+  [ ] I use  Ctrl+o  and  Ctrl+i  to walk through my jump history
+
+NEXT: Read the cheat sheet!  :e 08_quick_ref.txt  ENTER

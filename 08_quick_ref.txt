@@ -1,0 +1,148 @@
+================================================================================
+  QUICK REFERENCE CHEAT SHEET
+  File: 08_quick_ref.txt
+  Keep this open in a split while you practice other files!
+================================================================================
+
+─── MODES ──────────────────────────────────────────────────────────────────────
+  <Esc>   → Normal mode (always works)
+  i       → Insert before cursor
+  a       → Insert after cursor
+  I       → Insert at line start
+  A       → Insert at line end
+  o       → Open new line below, insert
+  O       → Open new line above, insert
+  v       → Visual (character select)
+  V       → Visual line select
+  Ctrl+v  → Visual block select
+  :       → Command mode
+
+─── MOVEMENT ────────────────────────────────────────────────────────────────────
+  h j k l     ← ↓ ↑ →   (character movement)
+  w           next word start
+  b           previous word start
+  e           current word end
+  0           line start
+  $           line end
+  ^           first non-blank of line
+  gg          file top
+  G           file bottom
+  {  }        prev/next blank-line paragraph
+  Ctrl+d      scroll down half screen
+  Ctrl+u      scroll up half screen
+  zz          center cursor on screen
+  5j          move 5 lines down  (number + motion)
+
+─── EDITING ─────────────────────────────────────────────────────────────────────
+  x           delete character
+  dw          delete word
+  dd          delete line
+  d$          delete to end of line
+  cw          change word
+  cc          change line
+  C           change to end of line
+  s           substitute character
+  yy          yank (copy) line
+  yw          yank word
+  p           paste after
+  P           paste before
+  u           undo
+  Ctrl+r      redo
+  .           repeat last change
+
+─── SEARCH ──────────────────────────────────────────────────────────────────────
+  /pattern    search forward
+  ?pattern    search backward
+  n           next match
+  N           previous match
+  *           search word under cursor forward
+  #           search word under cursor backward
+  :noh        clear search highlight
+  :%s/a/b/g   replace all 'a' with 'b' in file
+  :%s/a/b/gc  replace with confirmation
+
+─── BUFFERS (FILES IN MEMORY) ───────────────────────────────────────────────────
+  :e file     open file
+  :e .        open file explorer
+  :ls         list all buffers
+  :b name     switch to buffer by name (Tab completes!)
+  :bn         next buffer
+  :bp         previous buffer
+  Ctrl+^      toggle to alternate (previous) buffer
+  :bd         close current buffer
+  :w          save
+  :wq         save and quit
+  :q!         quit without saving
+  ZZ          save and quit (shortcut)
+
+─── WINDOWS (SPLITS) ────────────────────────────────────────────────────────────
+  :sp file    horizontal split + open file
+  :vsp file   vertical split + open file
+  Ctrl+w s    horizontal split
+  Ctrl+w v    vertical split
+  Ctrl+w h    move to left window
+  Ctrl+w l    move to right window
+  Ctrl+w j    move to window below
+  Ctrl+w k    move to window above
+  Ctrl+w w    cycle to next window
+  Ctrl+w =    equalize window sizes
+  Ctrl+w c    close current window
+  Ctrl+w o    close all other windows
+
+─── FILE NAVIGATION ─────────────────────────────────────────────────────────────
+  :Ex         open netrw file explorer
+  :Vex        open netrw in vertical split
+  :pwd        show current directory
+  :cd %:h     cd to current file's directory
+  m{a-z}      set local mark
+  m{A-Z}      set GLOBAL mark (works across files)
+  '{letter}   jump to mark (line)
+  `{letter}   jump to mark (exact position)
+  ''          jump to last position before big jump
+  Ctrl+o      jump back in history
+  Ctrl+i      jump forward in history
+  :jumps      view jump history
+  :marks      view all marks
+
+─── USEFUL COMBOS ───────────────────────────────────────────────────────────────
+  Open 2 files side-by-side:
+    :vsp other_file.txt     then Ctrl+w w to switch
+
+  See lesson while practicing:
+    :vsp 08_quick_ref.txt   in a vertical split on the right
+
+  Search and replace one word at a time:
+    /word  →  cw  →  type new  →  Esc  →  n  →  .  (repeat)
+
+  Delete to a character (e.g., delete to the semicolon):
+    dt;     (d = delete, t = till, ; = target character)
+
+  Copy from here to end of file:
+    yG      (y = yank, G = end of file)
+
+  Run a shell command without leaving nvim:
+    :!ls    (the ! runs a shell command)
+    :!pwd
+
+================================================================================
+  YOUR LEARNING PATH
+================================================================================
+
+  [ ] Lesson 1: Modes          (01_modes.txt)
+  [ ] Lesson 2: Moving around  (02_moving_around.txt)
+  [ ] Lesson 3: Editing        (03_editing.txt)
+  [ ] Lesson 4: Search         (04_search.txt)
+  [ ] Lesson 5: Buffers        (05_buffers.txt)
+  [ ] Lesson 6: Windows        (06_windows.txt)
+  [ ] Lesson 7: File nav       (07_files_nav.txt)
+  [ ] This cheat sheet         (08_quick_ref.txt) ← you are here
+
+WHAT TO DO AFTER THIS PLAYGROUND
+----------------------------------
+  - Run  :Tutor  inside nvim for the official built-in tutorial
+  - Use THIS cheat sheet open in a split whenever you code
+  - Challenge yourself: go 1 week without arrow keys or mouse
+  - The goal: stop thinking about the keys, think only about the edit
+
+REMEMBER: The first week feels slow. The second week feels normal.
+          By month two, you'll be faster than you ever were before.

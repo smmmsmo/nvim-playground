@@ -1,0 +1,113 @@
+================================================================================
+  LESSON 4: SEARCHING
+  File: 04_search.txt
+================================================================================
+
+FORWARD SEARCH
+---------------
+  /pattern   search FORWARD for "pattern", press ENTER to confirm
+  n          jump to NEXT match
+  N          jump to PREVIOUS match (backwards)
+
+Example: In Normal mode, type  /apple  then ENTER.
+         The cursor jumps to the first "apple" below.
+         Press  n  to find the next one.
+         Press  N  to go back.
+
+Search targets:
+  apple  orange  apple  banana  apple  grape  apple  kiwi
+
+BACKWARD SEARCH
+----------------
+  ?pattern   search BACKWARD for "pattern", press ENTER to confirm
+  n / N      same as above but direction is reversed
+
+SEARCHING FOR THE WORD UNDER CURSOR
+-------------------------------------
+  *   search FORWARD for word under cursor    (very fast!)
+  #   search BACKWARD for word under cursor
+
+Practice: put cursor ON the word "target" below, then press  *
+It will highlight all occurrences and jump to the next one.
+
+  Find the target. This is a target. The target appears three times.
+
+CLEARING THE HIGHLIGHTS
+------------------------
+After searching, matches stay highlighted. To clear:
+  :noh   (no highlight) then ENTER
+  or just start a new search
+
+SEARCH AND REPLACE
+-------------------
+In Command mode (press :), you can do find-and-replace:
+
+  :s/old/new/          replace FIRST occurrence on current line
+  :s/old/new/g         replace ALL on current line  (g = global)
+  :%s/old/new/g        replace ALL in the whole FILE  (% = all lines)
+  :%s/old/new/gc       replace ALL but ask to CONFIRM each one (c = confirm)
+
+Practice:
+  1. Put cursor on the line below that says REPLACE_ME
+  2. Type  :s/REPLACE_ME/done/g  then ENTER
+
+  REPLACE_ME REPLACE_ME REPLACE_ME all of these should become "done"
+
+CASE SENSITIVITY
+-----------------
+  /Pattern    case-sensitive (finds "Pattern" not "pattern")
+  /pattern\c  case-INsensitive (add \c anywhere in the pattern)
+
+================================================================================
+  PRACTICE ZONE 4 — Search
+================================================================================
+
+EXERCISE A: Forward search
+  1. Type  /mango  then ENTER
+  2. Count how many mangos there are using  n
+  3. Type  N  to walk back through them
+
+  I like mango smoothies. The mango tree is tall.
+  Mango is a tropical fruit. Have you tried mango ice cream?
+  Some people prefer mango to papaya. I always choose mango.
+
+EXERCISE B: Word-under-cursor search
+  1. Put cursor on any word in the paragraph below
+  2. Press  *  — it highlights all copies of that word
+  3. Press  n  to cycle through them
+
+  The cat sat on the mat. The cat was a fat cat.
+  The mat was on the floor. A cat can sit on any mat.
+  Did the cat choose that mat? Yes, the cat always sits there.
+
+EXERCISE C: Find and replace
+  Replace every "error" with "bug" in the block below.
+  Use:  :s/error/bug/g   on each line, or  :%s/error/bug/g  for all.
+
+  There is an error in this system.
+  The error was logged yesterday.
+  Fixing the error requires a patch.
+  After the error is fixed, test again.
+
+EXERCISE D: Search then edit (the combo)
+  1. Search for "FIX" with  /FIX  then ENTER
+  2. Press  cw  to change the word
+  3. Type the replacement, press  <Esc>
+  4. Press  n  to find the next "FIX"
+  5. Press  .  to repeat the same change!
+
+  The code has a FIX needed here.
+  Also a FIX required in this part.
+  And another FIX over here somewhere.
+
+================================================================================
+  CHECKPOINT 4
+================================================================================
+
+  [ ] I can search forward with  /  and backward with  ?
+  [ ] I can jump between matches with  n  and  N
+  [ ] I can search for the word under cursor with  *  and  #
+  [ ] I can clear highlights with  :noh
+  [ ] I can do find-and-replace with  :%s/old/new/g
+
+NEXT LESSON: Type  :e 05_buffers.txt  then ENTER

@@ -1,0 +1,115 @@
+================================================================================
+  LESSON 2: MOVING AROUND (Motions)
+  File: 02_moving_around.txt
+================================================================================
+
+STAY IN NORMAL MODE for all movement.
+If text appears when you press these keys, press <Esc> then u to undo.
+
+─── CHARACTER MOVEMENT ────────────────────────────────────────────────────────
+
+  h   ← left      (think: h is leftmost on the home row)
+  l   → right     (think: l is rightmost)
+  j   ↓ down      (think: j has a tail that points down)
+  k   ↑ up
+
+Practice: use hjkl to reach the X below. No arrow keys!
+
+  .  .  .  .  .  .  .  .  .  .  .  .
+  .  .  .  .  .  .  .  .  .  .  .  .
+  .  .  .  .  .  X  .  .  .  .  .  .
+  .  .  .  .  .  .  .  .  .  .  .  .
+  .  .  .  .  .  .  .  .  .  .  .  .
+
+─── WORD MOVEMENT ─────────────────────────────────────────────────────────────
+
+  w   jump to start of NEXT word      (Word forward)
+  b   jump to start of PREV word      (Back)
+  e   jump to END of current word
+
+These are MUCH faster than holding l. Always prefer w/b/e over hjkl for words.
+
+Practice on this line — jump word by word:
+  the quick brown fox jumps over the lazy dog
+
+─── LINE MOVEMENT ─────────────────────────────────────────────────────────────
+
+  0   go to the very START of the line  (zero)
+  $   go to the very END of the line
+  ^   go to the first non-blank character
+
+Practice: put cursor anywhere on this line, then press $ then 0 repeatedly:
+  →→→  [cursor here]  This is a practice line for 0 and $ movement  ←←←
+
+─── FILE MOVEMENT ─────────────────────────────────────────────────────────────
+
+  gg  jump to the TOP of the file     (press g twice quickly)
+  G   jump to the BOTTOM of the file  (capital G)
+  {   jump up one paragraph/blank-line
+  }   jump down one paragraph/blank-line
+
+Practice: press  G  to go to the bottom. Then press  gg  to come back.
+
+─── COUNT + MOTION ────────────────────────────────────────────────────────────
+
+You can PREFIX any motion with a NUMBER to repeat it:
+
+  5j    move 5 lines down
+  3w    jump 3 words forward
+  2b    jump 2 words back
+  10l   move 10 characters right
+
+Practice: from the word START below, press  4w  to land on FOUR.
+  START one two three FOUR five six
+
+─── SCREEN SCROLLING ──────────────────────────────────────────────────────────
+
+  Ctrl+d   scroll DOWN half a screen
+  Ctrl+u   scroll UP half a screen
+  Ctrl+f   scroll down Full screen
+  Ctrl+b   scroll Back full screen
+  zz       center the current line on screen (very handy!)
+
+================================================================================
+  PRACTICE ZONE 2 — Movement
+================================================================================
+
+EXERCISE A: hjkl maze
+Navigate from S to E using only hjkl (no arrow keys).
+
+  . . . . . . . . . . . . .
+  . S . # # # # . . . . . .
+  . . . . . . # . . . . . .
+  . . . # # . # . # # # . .
+  . . . # . . . . # . E . .
+  . . . # # # # # # . . . .
+  . . . . . . . . . . . . .
+
+EXERCISE B: Word jumping
+Put cursor on the first word below, then use only w/b/e to visit each word.
+
+  apple banana cherry date elderberry fig grape
+
+EXERCISE C: Jump around the file
+  1. Press  G   — where did you land?
+  2. Press  gg  — back to top?
+  3. Press  }   three times — does it skip past blank lines?
+  4. Press  {   three times — does it go back?
+
+SANDBOX — write your own text here and practice moving through it:
+────────────────────────────────────────────────────────────────────────────────
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+  CHECKPOINT 2
+================================================================================
+
+  [ ] I can move with hjkl without looking at the keyboard
+  [ ] I use w/b/e instead of holding l or h
+  [ ] I can jump to start/end of line with 0 and $
+  [ ] I can jump to top/bottom of file with gg and G
+  [ ] I know to prefix motions with a number to repeat them
+
+NEXT LESSON: Type  :e 03_editing.txt  then ENTER
