@@ -23,9 +23,9 @@ Practice: use hjkl to reach the X below. No arrow keys!
 
 ─── WORD MOVEMENT ─────────────────────────────────────────────────────────────
 
-  w   jump to start of NEXT word      (Word forward)
-  b   jump to start of PREV word      (Back)
-  e   jump to END of current word
+[x]  w   jump to start of NEXT word      (Word forward)
+[x]  b   jump to start of PREV word      (Back)
+[x]  e   jump to END of current word
 
 These are MUCH faster than holding l. Always prefer w/b/e over hjkl for words.
 
@@ -34,19 +34,19 @@ Practice on this line — jump word by word:
 
 ─── LINE MOVEMENT ─────────────────────────────────────────────────────────────
 
-  0   go to the very START of the line  (zero)
-  $   go to the very END of the line
-  ^   go to the first non-blank character
+[x]  0   go to the very START of the line  (zero)
+[x]  $   go to the very END of the line
+[x]  ^   go to the first non-blank character
 
 Practice: put cursor anywhere on this line, then press $ then 0 repeatedly:
   →→→  [cursor here]  This is a practice line for 0 and $ movement  ←←←
 
 ─── FILE MOVEMENT ─────────────────────────────────────────────────────────────
 
-  gg  jump to the TOP of the file     (press g twice quickly)
-  G   jump to the BOTTOM of the file  (capital G)
-  {   jump up one paragraph/blank-line
-  }   jump down one paragraph/blank-line
+[x]  gg  jump to the TOP of the file     (press g twice quickly)
+[x]  G   jump to the BOTTOM of the file  (capital G)
+[x]  {   jump up one paragraph/blank-line
+[x]  }   jump down one paragraph/blank-line
 
 Practice: press  G  to go to the bottom. Then press  gg  to come back.
 
@@ -64,11 +64,11 @@ Practice: from the word START below, press  4w  to land on FOUR.
 
 ─── SCREEN SCROLLING ──────────────────────────────────────────────────────────
 
-  Ctrl+d   scroll DOWN half a screen
-  Ctrl+u   scroll UP half a screen
-  Ctrl+f   scroll down Full screen
-  Ctrl+b   scroll Back full screen
-  zz       center the current line on screen (very handy!)
+[x]  Ctrl+d   scroll DOWN half a screen
+[x]  Ctrl+u   scroll UP half a screen
+[x]  Ctrl+f   scroll down Full screen
+[x]  Ctrl+b   scroll Back full screen
+[x]  zz       center the current line on screen (very handy!)
 
 ================================================================================
   PRACTICE ZONE 2 — Movement
@@ -80,7 +80,7 @@ Navigate from S to E using only hjkl (no arrow keys).
   . . . . . . . . . . . . .
   . S . # # # # . . . . . .
   . . . . . . # . . . . . .
-  . . . # # . # . # # # . .
+  . . . # # # # . # # # . .
   . . . # . . . . # . E . .
   . . . # # # # # # . . . .
   . . . . . . . . . . . . .

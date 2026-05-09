@@ -88,6 +88,11 @@
   Ctrl+w =    equalize window sizes
   Ctrl+w c    close current window
   Ctrl+w o    close all other windows
+  -- LazyVim shortcuts (in addition to the above):
+  Ctrl+h/j/k/l   jump windows directly (no Ctrl+w prefix)
+  <leader>|      vertical split
+  <leader>-      horizontal split
+  <leader>wd     close window
 
 ─── FILE NAVIGATION ─────────────────────────────────────────────────────────────
   :Ex         open netrw file explorer
@@ -124,6 +129,57 @@
     :!ls    (the ! runs a shell command)
     :!pwd
 
+─── LAZYVIM DAILY KEYS ──────────────────────────────────────────────────────────
+  <leader>     usually SPACE; wait to see which-key menu
+  <leader>ff   find files (filename fuzzy)
+  <leader>fr   recent files
+  <leader>fg   live grep / search project text
+  <leader>sw   search WORD under cursor across the project
+  <leader>sb   fuzzy search within the current buffer
+  <leader>e    open/close file explorer
+  <leader>E    open file explorer focused on current file
+  <leader>bb   buffer picker
+  <leader>bd   delete buffer
+  <leader>`    toggle alternate buffer (same as Ctrl+^)
+  <S-h>        previous buffer
+  <S-l>        next buffer
+  <leader>xx   diagnostics list, if Trouble is enabled
+
+─── TEXT OBJECTS ────────────────────────────────────────────────────────────────
+  ciw          change inner word
+  diw          delete inner word
+  yiw          yank inner word
+  ci"          change inside quotes
+  ca"          change around quotes, including quote marks
+  ci(          change inside parentheses
+  da(          delete around parentheses, including parentheses
+  vip          select inner paragraph
+  vap          select around paragraph
+
+─── MACROS ──────────────────────────────────────────────────────────────────────
+  qa           record macro into register a
+  q            stop recording
+  @a           replay macro a
+  @@           replay last macro again
+  5@a          replay macro a five times
+  :reg a       inspect register/macro a
+
+─── LSP / CODE INTELLIGENCE ─────────────────────────────────────────────────────
+  K            hover docs
+  gd           go to definition
+  gD           go to declaration
+  gr           references
+  gI           implementations
+  gy           type definition
+  <leader>cr   rename symbol
+  <leader>ca   code action
+  <leader>cf   format file
+  [d           previous diagnostic
+  ]d           next diagnostic
+  <leader>cd   show line diagnostic
+  :LspInfo     show attached language servers
+  :Mason       install/manage language tools
+
 ================================================================================
   YOUR LEARNING PATH
 ================================================================================
@@ -136,11 +192,19 @@
   [ ] Lesson 6: Windows        (06_windows.txt)
   [ ] Lesson 7: File nav       (07_files_nav.txt)
   [ ] This cheat sheet         (08_quick_ref.txt) ← you are here
+  [ ] Challenges               (09_challenges.txt)
+  [ ] LazyVim workflow         (10_lazyvim_keys.txt)
+  [ ] Text objects             (11_text_objects.txt)
+  [ ] Macros                   (12_macros.txt)
+  [ ] LSP/code actions         (13_lsp_code_actions.txt)
+  [ ] Real-world drills        (14_real_world_drills.txt)
+  [ ] Code-fixing drills       (15_code_fixing_drills.txt)
 
 WHAT TO DO AFTER THIS PLAYGROUND
 ----------------------------------
   - Run  :Tutor  inside nvim for the official built-in tutorial
   - Use THIS cheat sheet open in a split whenever you code
+  - Use 10-14 for LazyVim and real project editing practice
   - Challenge yourself: go 1 week without arrow keys or mouse
   - The goal: stop thinking about the keys, think only about the edit
 

@@ -1,0 +1,209 @@
+================================================================================
+  LESSON 11: TEXT OBJECTS — EDIT WHAT YOU MEAN
+  File: 11_text_objects.txt
+================================================================================
+
+This is where Vim starts feeling different from normal editors.
+
+Instead of selecting text with the mouse, you tell nvim what object you mean:
+
+  word
+  sentence
+  paragraph
+  quoted string
+  parentheses
+  brackets
+  function block
+  tag
+
+The pattern is:
+
+  OPERATOR + TEXT OBJECT
+
+Examples:
+
+  ciw    change inner word
+  diw    delete inner word
+  yiw    yank inner word
+  ci"    change inside quotes
+  di(    delete inside parentheses
+  da(    delete around parentheses, including the parentheses
+
+================================================================================
+  PART 1: INNER VS AROUND
+================================================================================
+
+  i  = inner object
+  a  = around object
+
+On this text:
+
+  example("hello world")
+
+If cursor is inside the quotes:
+
+  ci"    changes only: hello world
+  ca"    changes: "hello world"
+
+If cursor is inside the parentheses:
+
+  ci(    changes only: "hello world"
+  ca(    changes: ("hello world")
+
+Practice A: Quotes
+
+  Put cursor anywhere inside each quoted string and use  ci"  to replace it.
+
+  const name = "WRONG_NAME";
+  const city = "WRONG_CITY";
+  const status = "WRONG_STATUS";
+  const message = "This message should be replaced quickly";
+
+Practice B: Parentheses
+
+  Put cursor inside the parentheses and use  ci(  to replace the arguments.
+
+  sendEmail(old_user, old_subject, old_body)
+  calculateTotal(price, tax, discount)
+  createAccount(first_name, last_name, email_address)
+
+Practice C: Around parentheses
+
+  Put cursor inside the parentheses and use  da(  to remove the whole argument
+  group, including the parentheses.
+
+  debugLog(remove_this_entire_call)
+  wrapper(delete_all_of_this)
+  maybe(remove_the_parentheses_too)
+
+================================================================================
+  PART 2: WORD OBJECTS
+================================================================================
+
+Common word objects:
+
+  iw    inner word
+  aw    around word, including nearby space
+  iW    inner WORD, separated by whitespace
+  aW    around WORD, including nearby space
+
+word vs WORD:
+
+  word  stops at punctuation
+  WORD  stops only at whitespace
+
+Example:
+
+  user.profile.email
+
+  ciw  might change only "profile"
+  ciW  changes the whole "user.profile.email"
+
+Practice:
+
+  Use ciw on each selected middle word:
+
+  alpha WRONG beta
+  start MISTAKE end
+  before replace_me after
+
+  Use ciW on these whole chunks:
+
+  user.profile.email
+  order.items[0].price
+  config.database.primary_url
+
+================================================================================
+  PART 3: VISUAL TEXT OBJECTS
+================================================================================
+
+Text objects work in Visual mode too.
+
+  vi"    visually select inside quotes
+  va"    visually select around quotes
+  vi(    visually select inside parentheses
+  vap    visually select around paragraph
+
+Practice:
+
+  1. Put cursor inside the quote below.
+  2. Press  vi"
+  3. Press  y  to yank the selected text.
+  4. Move below the block.
+  5. Press  p  to paste it.
+
+  "Copy only this sentence, not the quote marks."
+
+Paste result here:
+
+
+Practice paragraph selection:
+
+  Put cursor in this paragraph and press  vap.
+  You should see the whole paragraph selected, including the blank-line boundary.
+  Then press  <Esc>  to cancel.
+
+  Put cursor in this second paragraph and press  vip.
+  This selects the inside of the paragraph without grabbing as much boundary.
+  Then press  <Esc>  again.
+
+================================================================================
+  PART 4: COMBINING TEXT OBJECTS WITH DOT REPEAT
+================================================================================
+
+The dot command repeats the last change. Text objects make that repeat powerful.
+
+Practice:
+
+  1. Put cursor inside the first quoted value.
+  2. Press  ci"
+  3. Type  done
+  4. Press  <Esc>
+  5. Move to the next quoted value with  /"old  or  j
+  6. Press  .  to repeat.
+
+  status: "old"
+  state: "old"
+  result: "old"
+  outcome: "old"
+
+================================================================================
+  PART 5: REAL CODE PRACTICE
+================================================================================
+
+Fix this object using text objects.
+
+Goal:
+
+  - Change "custmer" to "customer"
+  - Change "pendng" to "pending"
+  - Replace the whole notes string with "Needs manual review"
+  - Delete the empty metadata object parentheses in track(metadata)
+
+Code:
+
+  const record = {
+    type: "custmer",
+    status: "pendng",
+    notes: "this old text should be replaced with one clean sentence",
+    track: track(metadata),
+  };
+
+Suggested keys:
+
+  /custmer     then ci"
+  /pendng      then ci"
+  /this old    then ci"
+  /metadata    then da(
+
+================================================================================
+  CHECKPOINT 11
+================================================================================
+
+  [ ] I understand operator + text object
+  [ ] I can use ciw, diw, yiw
+  [ ] I can use ci", ca", ci(, da(
+  [ ] I understand inner vs around
+  [ ] I can combine text objects with dot repeat
+
+NEXT LESSON:  :e 12_macros.txt

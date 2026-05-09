@@ -100,6 +100,25 @@ Which Ctrl+w command will you use most?
 
 ────────────────────────────────────────────────────────────────────────────────
 
+─── LAZYVIM EQUIVALENT ─────────────────────────────────────────────────────────
+
+LazyVim maps direct Ctrl+hjkl to window navigation, so you can drop the
+"Ctrl+w" prefix on the most common move:
+
+  Ctrl+h         move to window on the LEFT     (same as Ctrl+w h)
+  Ctrl+l         move to window on the RIGHT    (same as Ctrl+w l)
+  Ctrl+j         move to window BELOW           (same as Ctrl+w j)
+  Ctrl+k         move to window ABOVE           (same as Ctrl+w k)
+
+Other LazyVim window helpers:
+
+  <leader>|      vertical split
+  <leader>-      horizontal split
+  <leader>wd     close window
+
+Splits, sizing, and Ctrl+w combos still work the same — LazyVim only adds
+shortcuts; it does not remove anything.
+
 ================================================================================
   CHECKPOINT 6
 ================================================================================
@@ -109,5 +128,6 @@ Which Ctrl+w command will you use most?
   [ ] I can move between windows with  Ctrl+w hjkl  or  Ctrl+w w
   [ ] I can close the current window with  Ctrl+w c
   [ ] I can open a file directly in a split with  :vsp filename
+  [ ] I know LazyVim lets me jump windows with plain Ctrl+hjkl
 
 NEXT LESSON: Type  :e 07_files_nav.txt  then ENTER

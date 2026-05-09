@@ -1,0 +1,228 @@
+================================================================================
+  LESSON 10: LAZYVIM WORKFLOW KEYS
+  File: 10_lazyvim_keys.txt
+================================================================================
+
+LazyVim gives you a fast IDE-like workflow, but the power still comes from
+normal Vim motions. Think of LazyVim as your cockpit:
+
+  - Find files fast
+  - Search across the project
+  - Jump between buffers
+  - Open diagnostics
+  - Run code actions
+  - Navigate symbols
+
+IMPORTANT
+---------
+In most LazyVim setups, <leader> is SPACE.
+
+  <leader>ff  means: press SPACE, then f, then f
+  <leader>fg  means: press SPACE, then f, then g
+
+If a mapping does not work, type:
+
+  :LazyHealth
+
+Then check whether LazyVim loaded correctly.
+
+================================================================================
+  PART 1: WHICH-KEY
+================================================================================
+
+LazyVim usually includes which-key. It shows available keybindings after you
+pause on a prefix.
+
+Try this:
+
+  1. Press SPACE and wait.
+  2. A menu should appear.
+  3. Press f and wait.
+  4. You should see file/search related actions.
+  5. Press <Esc> to cancel.
+
+Practice:
+
+  Press each prefix and wait for the menu:
+
+    SPACE
+    SPACE f
+    SPACE b
+    SPACE c
+    SPACE s
+    g
+    [
+    ]
+
+Write down three mappings you discovered:
+
+  1.
+  2.
+  3.
+
+================================================================================
+  PART 2: FIND FILES FAST
+================================================================================
+
+Common LazyVim file mappings:
+
+  <leader>ff    find files
+  <leader>fr    recent files
+  <leader>e     file explorer
+  <leader>E     file explorer focused on current file or root
+
+Practice A: Find this file again
+
+  1. Press  <leader>ff
+  2. Type  lazy
+  3. Move selection with Ctrl+n / Ctrl+p or j / k if enabled
+  4. Press ENTER on 10_lazyvim_keys.txt
+
+Practice B: Find a practice file
+
+  1. Press  <leader>ff
+  2. Type  messy
+  3. Open  practice/messy_notes.txt
+  4. Press  Ctrl+o  to jump back here
+
+Practice C: Recent files
+
+  1. Open  practice/customer_report.md
+  2. Return here with  Ctrl+o
+  3. Press  <leader>fr
+  4. Pick  customer_report.md  from the recent list
+  5. Press  Ctrl+^  to toggle back here
+
+================================================================================
+  PART 3: SEARCH THE WHOLE PROJECT
+================================================================================
+
+Common LazyVim search mappings:
+
+  <leader>fg    live grep / project text search
+  <leader>sw    search word under cursor
+  <leader>sG    grep in git root or current root (varies by setup)
+
+Practice A: Project grep
+
+  1. Press  <leader>fg
+  2. Search for:  TODO
+  3. Open a result in  practice/todo_app.js
+  4. Use  n  and  N  inside that file to move between matches.
+
+Practice B: Search word under cursor
+
+  Put your cursor on this word:  invoice_total
+
+  Then press:
+
+    <leader>sw
+
+  If LazyVim asks for a query, accept or edit it.
+
+Practice C: Search, edit, return
+
+  1. Press  <leader>fg
+  2. Search for:  custmer
+  3. Open the result in  practice/customer_report.md
+  4. Fix "custmer" to "customer" with  cw
+  5. Press  Ctrl+o  to return here
+
+================================================================================
+  PART 4: BUFFERS THE LAZYVIM WAY
+================================================================================
+
+Vim buffer commands still work:
+
+  :ls
+  :b name
+  :bn
+  :bp
+  Ctrl+^
+
+LazyVim usually adds buffer mappings:
+
+  <S-h>        previous buffer
+  <S-l>        next buffer
+  <leader>bb   switch buffer / buffer picker
+  <leader>bd   delete buffer
+
+Practice:
+
+  1. Open these files:
+       :e 03_editing.txt
+       :e 10_lazyvim_keys.txt
+       :e practice/messy_notes.txt
+  2. Use  <S-h>  and  <S-l>  to move between buffers.
+  3. Use  :ls  to confirm what is open.
+  4. Use  Ctrl+^  to bounce between the last two buffers.
+
+Question:
+
+  Which feels faster for two files: Ctrl+^ or <S-h>/<S-l>?
+
+Answer:
+
+
+================================================================================
+  PART 5: EXPLORER WORKFLOW
+================================================================================
+
+LazyVim usually uses Snacks Explorer or neo-tree depending on the version and
+extras. The exact UI may differ, but the habit is the same:
+
+  <leader>e     open/close explorer
+  j / k         move
+  ENTER         open
+  a             add file (common)
+  d             delete (common)
+  r             rename (common)
+  ?             help inside many explorer UIs
+
+Practice:
+
+  1. Press  <leader>e
+  2. Navigate into  practice/
+  3. Open  todo_app.js
+  4. Press  <leader>e  again to return to explorer or close it
+  5. Press  ?  inside the explorer and read the available keys
+
+Do not delete files yet. Learn the movement first.
+
+================================================================================
+  PART 6: DIAGNOSTICS
+================================================================================
+
+Diagnostics are warnings/errors from language servers and linters.
+
+Common LazyVim/Vim diagnostic mappings:
+
+  [d             previous diagnostic
+  ]d             next diagnostic
+  <leader>cd     line diagnostic
+  <leader>cl     LSP info or code lens related menu in some configs
+  <leader>xx     diagnostics/trouble list if Trouble is enabled
+
+Practice:
+
+  1. Open  practice/todo_app.js
+  2. Put your cursor on suspicious code.
+  3. Press  ]d  to move to the next diagnostic if one exists.
+  4. Press  <leader>cd  to show the diagnostic message.
+  5. Press  <leader>xx  to open the diagnostics list if available.
+
+If there are no diagnostics, that is fine. LSP depends on installed tools.
+The navigation keys are still worth learning.
+
+================================================================================
+  CHECKPOINT 10
+================================================================================
+
+  [ ] I know that <leader> usually means SPACE in LazyVim
+  [ ] I can find files with <leader>ff
+  [ ] I can search project text with <leader>fg
+  [ ] I can open/close the explorer with <leader>e
+  [ ] I can switch buffers with Ctrl+^ and LazyVim buffer keys
+  [ ] I can inspect available mappings with which-key
+
+NEXT LESSON:  :e 11_text_objects.txt

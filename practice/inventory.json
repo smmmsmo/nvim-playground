@@ -1,0 +1,33 @@
+{
+  "warehouse": "north",
+  "items": [
+    {
+      "sku": "NB-001",
+      "name": "Notebook",
+      "statuz": "availble",
+      "count": 42
+    },
+    {
+      "sku": "PN-002",
+      "name": "Pen",
+      "statuz": "availble",
+      "count": 120
+    },
+    {
+      "sku": "BG-003",
+      "name": "Bag",
+      "statuz": "backorder",
+      "count": 0
+    },
+    {
+      "sku": "KB-004",
+      "name": "Keyboard",
+      "statuz": "availble",
+      "count": 18
+    }
+  ],
+  "notes": {
+    "owner": "operations",
+    "review": "urgent count check needed for backorder items"
+  }
+}

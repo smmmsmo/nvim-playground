@@ -71,10 +71,10 @@ SANDBOX — type anything below this line and then undo it:
 
 Before moving on, make sure you can answer YES to all of these:
 
-  [ ] I can enter Insert mode with  i
-  [ ] I can return to Normal mode with  <Esc>
-  [ ] I know to look at the bottom-left to see which mode I'm in
-  [ ] I can undo with  u  and redo with  Ctrl+r
+  [x] I can enter Insert mode with  i
+  [x] I can return to Normal mode with  <Esc>
+  [x] I know to look at the bottom-left to see which mode I'm in
+  [x] I can undo with  u  and redo with  Ctrl+r
 
 NEXT LESSON: Open  02_moving_around.txt
   Type:  :e 02_moving_around.txt  then press ENTER

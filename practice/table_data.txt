@@ -1,0 +1,25 @@
+Macro Table Cleanup Practice
+============================
+
+Convert each row below into YAML-style blocks.
+
+Original shape:
+
+  name | status | tickets
+
+Target shape:
+
+  - name: alice
+    status: active
+    tickets: 12
+
+Rows:
+
+alice | active | 12
+bob | pending | 4
+carol | urgent | 9
+dave | active | 1
+erin | pending | 7
+frank | urgent | 3
+grace | active | 15
+heidi | pending | 2

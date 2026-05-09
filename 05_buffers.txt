@@ -98,6 +98,20 @@ What is Ctrl+^ good for?
 
 ────────────────────────────────────────────────────────────────────────────────
 
+─── LAZYVIM EQUIVALENT ─────────────────────────────────────────────────────────
+
+LazyVim adds friendlier buffer keys on top of the Vim ones:
+
+  <S-h>          previous buffer   (capital H, same as :bp)
+  <S-l>          next buffer       (capital L, same as :bn)
+  <leader>bb     buffer picker     (fuzzy search through open buffers)
+  <leader>bd     delete current buffer (same as :bd)
+  <leader>`      toggle alternate buffer (same as Ctrl+^)
+
+The Vim commands (:ls, :bn, :bp, :b name, Ctrl+^) still work everywhere —
+inside vanilla Vim, on remote servers, in containers. Learn them first,
+then use the LazyVim keys for daily speed.
+
 ================================================================================
   CHECKPOINT 5
 ================================================================================
@@ -107,5 +121,6 @@ What is Ctrl+^ good for?
   [ ] I can switch between buffers with  :b name  or  :bn / :bp
   [ ] I use  Ctrl+^  to toggle between the last two files
   [ ] I can save with  :w  and close with  :bd
+  [ ] I know <S-h> / <S-l> cycle buffers in LazyVim
 
 NEXT LESSON: Type  :e 06_windows.txt  then ENTER

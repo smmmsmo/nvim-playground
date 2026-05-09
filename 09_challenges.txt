@@ -140,5 +140,7 @@ Next steps:
   - Learn TEXT OBJECTS  (diw, ci", da(, etc.) — these are huge
   - Learn MACROS  (qa...q then @a to replay)
   - Explore nvim config  (~/.config/nvim/init.lua  or  init.vim)
+  - Continue with 10_lazyvim_keys.txt for LazyVim workflow practice
+  - Continue with 14_real_world_drills.txt for longer project-style exercises
 
 The journey into nvim is long but deeply rewarding. Keep going!

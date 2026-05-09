@@ -1,0 +1,79 @@
+# Intentionally messy YAML config for nvim practice.
+# Goal: fix typo keys, normalize indentation, align values.
+# DO NOT load this in a real app — it is a fixture for editing drills.
+
+aplication:
+  naem:    "order-srvice"
+  versoin: "1.0.0"
+  enviroment: "developement"
+
+server:
+   host: "0.0.0.0"
+    port:    8080
+   tiemout_seconds: 30
+
+databse:
+  pirmary:
+    host:     "db-primary.local"
+    port:     5432
+    user:     "admin"
+    password: "REPLACE_ME"
+    pool_sze: 10
+  secondry:
+     host: "db-secondary.local"
+     port: 5432
+     user: "admin"
+     password: "REPLACE_ME"
+     pool_sze: 5
+
+featrues:
+  enable_recieved_webhook: true
+  enable_oder_export:      false
+  enable_custmer_audit:    true
+  enable_pendng_alerts:    true
+
+logging:
+  levle:   "INFO"
+  fromat:  "json"
+  outpt:   "stdout"
+
+owners:
+  - name: alice
+    role: lead
+  - name: bob
+    role: lead
+  - name: carol
+    role: lead
+  - name: dave
+    role: lead
+
+# DRILL TARGETS for this file
+# ---------------------------
+# Typo keys to fix (use ciw or /key + cw):
+#   aplication      -> application
+#   naem            -> name
+#   versoin         -> version
+#   enviroment      -> environment
+#   developement    -> development
+#   tiemout_seconds -> timeout_seconds
+#   databse         -> database
+#   pirmary         -> primary
+#   secondry        -> secondary
+#   pool_sze        -> pool_size
+#   featrues        -> features
+#   recieved        -> received
+#   oder            -> order
+#   custmer         -> customer
+#   pendng          -> pending
+#   levle           -> level
+#   fromat          -> format
+#   outpt           -> output
+#
+# Indentation drills:
+#   The "server", "databse.secondry", and the top of "server" use mixed
+#   leading spaces. Use V (visual line) + < or > to fix indentation.
+#   Use :set list to make whitespace visible while you work.
+#
+# Macro drill:
+#   The "owners" list has every role set to "lead". Use a macro to change
+#   role values to: lead, lead, reviewer, reviewer (alternating).

@@ -1,0 +1,176 @@
+================================================================================
+  LESSON 13: LSP, CODE ACTIONS, AND IDE MOVES
+  File: 13_lsp_code_actions.txt
+================================================================================
+
+LazyVim shines when language servers are installed.
+
+LSP means Language Server Protocol. It powers:
+
+  - go to definition
+  - hover docs
+  - rename symbol
+  - diagnostics
+  - code actions
+  - references
+  - formatting
+
+This lesson uses likely LazyVim defaults. If a mapping differs, press SPACE and
+wait for which-key, or run:
+
+  :LazyHealth
+  :Mason
+  :LspInfo
+
+================================================================================
+  PART 1: CORE LSP KEYS
+================================================================================
+
+Common LazyVim LSP mappings:
+
+  K              hover documentation
+  gd             go to definition
+  gD             go to declaration
+  gr             references
+  gI             implementations
+  gy             type definition
+  <leader>cr     rename symbol
+  <leader>ca     code action
+  <leader>cf     format file
+  [d             previous diagnostic
+  ]d             next diagnostic
+  <leader>cd     show line diagnostic
+
+Practice:
+
+  1. Open  practice/todo_app.js
+  2. Put cursor on  calculateTotal
+  3. Press  gr  to find references.
+  4. Press  gd  on a function call if LSP is active.
+  5. Press  K  on a known symbol.
+  6. Press  <leader>cr  on  invoice_total  and rename it.
+
+If LSP is not active for JavaScript:
+
+  - Open  :Mason
+  - Install a JS/TS language server if needed
+  - Or keep using this lesson for the key habits
+
+================================================================================
+  PART 2: RENAME SYMBOL VS SEARCH REPLACE
+================================================================================
+
+Use search replace when changing plain text:
+
+  :%s/custmer/customer/g
+
+Use LSP rename when changing a variable/function across code:
+
+  <leader>cr
+
+Why:
+
+  Search replace does not understand code.
+  LSP rename can update references safely when the server supports it.
+
+Practice:
+
+  In  practice/todo_app.js:
+
+  1. Put cursor on  invoice_total
+  2. Press  <leader>cr
+  3. Rename to  invoiceTotal
+  4. Search with  /invoice  to see what changed
+  5. Undo with  u  if you want to reset the drill
+
+================================================================================
+  PART 3: REFERENCES
+================================================================================
+
+References answer: "Where is this used?"
+
+Practice:
+
+  1. Open  practice/todo_app.js
+  2. Put cursor on  formatCustomer
+  3. Press  gr
+  4. Move through the reference picker/results
+  5. Open one result
+  6. Press  Ctrl+o  to jump back
+
+================================================================================
+  PART 4: CODE ACTIONS
+================================================================================
+
+Code actions are contextual fixes.
+
+Examples:
+
+  - import missing symbol
+  - remove unused variable
+  - convert var to const
+  - apply quick fix
+  - suppress diagnostic
+
+Practice:
+
+  1. Open  practice/todo_app.js
+  2. Put cursor on a line with TODO or questionable code.
+  3. Press  <leader>ca
+  4. If a menu appears, read the choices.
+  5. Press  <Esc>  if you do not want to apply one.
+
+Not every line has a code action. That is normal.
+
+================================================================================
+  PART 5: FORMAT
+================================================================================
+
+Common format command:
+
+  <leader>cf
+
+Practice:
+
+  1. Open  practice/todo_app.js
+  2. Intentionally add extra spaces to a line.
+  3. Press  <leader>cf
+  4. If formatting is configured, the file should clean up.
+  5. Undo with  u  if this is only practice.
+
+If formatting does nothing, check:
+
+  :ConformInfo
+  :Mason
+
+LazyVim often uses conform.nvim for formatting.
+
+================================================================================
+  PART 6: DIAGNOSTIC WALK
+================================================================================
+
+Practice:
+
+  1. Open  practice/todo_app.js
+  2. Press  gg
+  3. Press  ]d  repeatedly
+  4. For each diagnostic, press  <leader>cd
+  5. Try  <leader>ca  to see if a fix exists
+
+This is a real coding habit:
+
+  jump diagnostic -> read message -> fix -> next diagnostic
+
+================================================================================
+  CHECKPOINT 13
+================================================================================
+
+  [ ] I can check LSP status with :LspInfo
+  [ ] I can hover with K
+  [ ] I can go to definition with gd
+  [ ] I can find references with gr
+  [ ] I can rename with <leader>cr
+  [ ] I can open code actions with <leader>ca
+  [ ] I can move through diagnostics with [d and ]d
+
+NEXT LESSON:  :e 14_real_world_drills.txt

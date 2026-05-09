@@ -1,0 +1,199 @@
+================================================================================
+  LESSON 12: MACROS — RECORD BORING EDITS ONCE
+  File: 12_macros.txt
+================================================================================
+
+Macros record keys and replay them.
+
+This is the core idea:
+
+  qa      start recording into register a
+  ...     do your edit
+  q       stop recording
+  @a      replay macro a
+  @@      replay the last macro again
+  10@a    replay macro a ten times
+
+Use macros when a change is repetitive but not simple enough for one substitute.
+
+================================================================================
+  PART 1: YOUR FIRST MACRO
+================================================================================
+
+Goal: add "- done" to the end of each line.
+
+Practice block:
+
+  task one
+  task two
+  task three
+  task four
+  task five
+
+Steps:
+
+  1. Put cursor on "task one".
+  2. Press  qa        start recording in register a
+  3. Press  A         append at end of line
+  4. Type   - done
+  5. Press  <Esc>
+  6. Press  j         move down to next line
+  7. Press  q         stop recording
+  8. Press  @a        replay on next line
+  9. Press  @@        replay again
+ 10. Press  2@@       replay twice more
+
+Macro lesson:
+
+  End your macro by moving to the next target line when possible.
+  That makes replay easy.
+
+================================================================================
+  PART 2: MACRO WITH WORD CHANGE
+================================================================================
+
+Goal: change the first word on every line to "item".
+
+Practice block:
+
+  alpha: needs cleanup
+  beta: needs cleanup
+  gamma: needs cleanup
+  delta: needs cleanup
+  epsilon: needs cleanup
+
+Suggested macro:
+
+  qa
+  0
+  cw
+  item
+  <Esc>
+  j
+  q
+
+Then replay:
+
+  4@a
+
+If it goes wrong:
+
+  u       undo once
+  5u      undo five changes
+
+================================================================================
+  PART 3: MACRO WITH SEARCH
+================================================================================
+
+Goal: find each TODO and turn it into DONE.
+
+Practice block:
+
+  TODO write tests for parser
+  keep this line unchanged
+  TODO rename the confusing variable
+  keep this line unchanged too
+  TODO remove dead code
+  another normal line
+  TODO update the README
+
+Suggested macro:
+
+  qa
+  /TODO
+  <Enter>
+  cw
+  DONE
+  <Esc>
+  q
+
+Replay:
+
+  @a
+  @a
+  @a
+
+Why this works:
+
+  The macro searches for the next TODO every time it runs.
+
+================================================================================
+  PART 4: MACRO WITH NUMBERED DATA
+================================================================================
+
+Goal: convert these plain lines:
+
+  user alice
+  user bob
+  user carol
+  user dave
+  user erin
+
+Into this shape:
+
+  - name: alice
+    role: user
+
+You can do it manually, but try a macro.
+
+Suggested approach:
+
+  1. Put cursor on first "user".
+  2. Start macro with  qa
+  3. Change "user " to "- name: " using  cw  or  ct<space>
+  4. Go to end of line with  A
+  5. Add a new line below with role text:
+       <Esc>o  role: user<Esc>
+  6. Move to the next original user line.
+  7. Stop with  q
+
+This one is intentionally harder. If your macro fails, undo and try again.
+The skill is not "never fail"; the skill is "build a repeatable edit."
+
+Workspace:
+
+  user alice
+  user bob
+  user carol
+  user dave
+  user erin
+
+================================================================================
+  PART 5: INSPECTING MACROS
+================================================================================
+
+Macros are stored in registers.
+
+  :reg a      show register a
+  "ap        paste register a into the file
+
+Practice:
+
+  1. Record any tiny macro into register b:
+       qbA !!!<Esc>jq
+  2. Type  :reg b
+  3. Notice that the macro is just text representing keys.
+
+================================================================================
+  MACRO DEBUGGING RULES
+================================================================================
+
+  - Start small.
+  - Make the macro end on the next target.
+  - Prefer motions like 0, $, w, f:, t, /word over fragile hjkl counts.
+  - If a macro depends on line length, it will break.
+  - If a macro searches for the next target, it is usually more robust.
+  - Use  u  freely. Macros are practice.
+
+================================================================================
+  CHECKPOINT 12
+================================================================================
+
+  [ ] I can record with q{letter}
+  [ ] I can stop recording with q
+  [ ] I can replay with @{letter}
+  [ ] I can repeat the last macro with @@
+  [ ] I can run a macro multiple times with 5@a
+  [ ] I can inspect a macro with :reg
+
+NEXT LESSON:  :e 13_lsp_code_actions.txt

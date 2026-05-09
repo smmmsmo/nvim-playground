@@ -1,0 +1,268 @@
+================================================================================
+  LESSON 14: REAL-WORLD DRILLS
+  File: 14_real_world_drills.txt
+================================================================================
+
+This file is your workout plan.
+
+You are no longer just learning individual keys. You are combining:
+
+  - motions
+  - text objects
+  - search
+  - substitute
+  - buffers
+  - splits
+  - LazyVim picker
+  - macros
+  - LSP keys
+
+Rules:
+
+  - No mouse.
+  - No arrow keys.
+  - Use undo freely.
+  - Prefer repeatable edits over manual edits.
+  - Keep 08_quick_ref.txt open in a split if needed.
+
+================================================================================
+  DRILL 1: CLEAN NOTES
+================================================================================
+
+File:
+
+  practice/messy_notes.txt
+
+Goal:
+
+  - Fix obvious spelling mistakes.
+  - Convert inconsistent bullets to "- ".
+  - Remove duplicate blank lines.
+  - Change every TODO to DONE only after the line sounds complete.
+  - Use search and text objects, not mouse selection.
+
+Suggested workflow:
+
+  1. <leader>ff
+  2. Type messy
+  3. Open messy_notes.txt
+  4. Search for TODO with /TODO
+  5. Use cw, A, dd, J, and . repeatedly
+  6. Save with :w
+
+Skills:
+
+  /, n, N, cw, A, dd, J, :s, .
+
+================================================================================
+  DRILL 2: REWRITE A CUSTOMER REPORT
+================================================================================
+
+File:
+
+  practice/customer_report.md
+
+Goal:
+
+  - Replace "custmer" with "customer".
+  - Replace "recieved" with "received".
+  - Fix headings so they use consistent Markdown.
+  - Move the "Action Items" section above "Notes".
+  - Make the final checklist use "- [ ]" format.
+
+Suggested workflow:
+
+  1. Open this drill in one split and the report in another:
+       :vsp practice/customer_report.md
+  2. Use /custmer and :%s where appropriate.
+  3. Use visual line mode V to select a section.
+  4. Use d to cut, p to paste.
+  5. Use == to reindent if needed.
+
+Skills:
+
+  :vsp, Ctrl+w w, /, :%s, V, d, p, gg, G
+
+================================================================================
+  DRILL 3: JAVASCRIPT REFACTOR
+================================================================================
+
+File:
+
+  practice/todo_app.js
+
+Goal:
+
+  - Rename invoice_total to invoiceTotal.
+  - Rename formatCustomer to formatCustomerName.
+  - Convert the repeated "pending" strings into a constant.
+  - Delete dead comments.
+  - Fix inconsistent spacing.
+
+Suggested workflow:
+
+  1. Use LSP rename if active: <leader>cr
+  2. If LSP is unavailable, use careful search replace.
+  3. Use text objects like ci" and ciw.
+  4. Use macros for repeated string edits.
+  5. Format with <leader>cf if configured.
+
+Skills:
+
+  <leader>cr, gr, gd, ciw, ci", :%s, q, @, <leader>cf
+
+================================================================================
+  DRILL 4: STRUCTURED DATA CLEANUP
+================================================================================
+
+File:
+
+  practice/inventory.json
+
+Goal:
+
+  - Change "statuz" keys to "status".
+  - Change every "availble" value to "available".
+  - Fix trailing spaces.
+  - Sort nothing. Move nothing. Keep JSON shape intact.
+
+Suggested workflow:
+
+  1. Use /statuz then cw.
+  2. Use :%s/availble/available/g.
+  3. Use ci" for string values.
+  4. Use % on braces/brackets to jump between matching pairs.
+
+Skills:
+
+  /, n, cw, :%s, ci", %, =%
+
+================================================================================
+  DRILL 5: MACRO TABLE CLEANUP
+================================================================================
+
+File:
+
+  practice/table_data.txt
+
+Goal:
+
+  Convert rows from this:
+
+    alice | active | 12
+
+  Into this:
+
+    - name: alice
+      status: active
+      tickets: 12
+
+Suggested workflow:
+
+  1. Solve one row manually.
+  2. Undo it.
+  3. Record the same edit as a macro.
+  4. Replay the macro for the remaining rows.
+
+Skills:
+
+  f, t, cw, A, o, q, @, @@
+
+================================================================================
+  DRILL 6: MULTI-FILE SEARCH
+================================================================================
+
+Goal:
+
+  Find every occurrence of "urgent" in the practice directory and make the text
+  more specific.
+
+Suggested workflow:
+
+  1. Press <leader>fg.
+  2. Search urgent.
+  3. Open each result.
+  4. Edit the sentence.
+  5. Use Ctrl+o to jump back through results.
+
+Skills:
+
+  <leader>fg, Ctrl+o, Ctrl+i, n, cw, A
+
+================================================================================
+  DRILL 7: TWO-PANE LEARNING MODE
+================================================================================
+
+Goal:
+
+  Work with instructions on the left and target file on the right.
+
+Steps:
+
+  1. Open this file.
+  2. Run:
+       :vsp practice/todo_app.js
+  3. Move between panes with Ctrl+w h and Ctrl+w l.
+  4. Keep instructions visible while editing.
+  5. Equalize with Ctrl+w =.
+
+Skills:
+
+  :vsp, Ctrl+w h, Ctrl+w l, Ctrl+w =, Ctrl+w o
+
+================================================================================
+  DRILL 8: SPEED ROUND
+================================================================================
+
+Do this without thinking too long:
+
+  1. <leader>ff -> open practice/messy_notes.txt
+  2. /TODO -> find first TODO
+  3. cwDONE<Esc>
+  4. n. -> repeat on next TODO if appropriate
+  5. Ctrl+^ -> return to previous file
+  6. <leader>fg -> search "invoice_total"
+  7. Open result
+  8. ciw -> rename the word
+  9. :w
+ 10. Ctrl+o twice
+
+Repeat this drill until the navigation feels plain.
+
+================================================================================
+  PERSONAL LOG
+================================================================================
+
+After each practice session, write:
+
+  Date:
+  Files practiced:
+  Three keys that felt useful:
+  One thing that felt slow:
+  Tomorrow's focus:
+
+Session 1:
+
+
+Session 2:
+
+
+Session 3:
+
+
+================================================================================
+  FINAL CHECKPOINT
+================================================================================
+
+  [ ] I can move without arrow keys
+  [ ] I can edit words, lines, quotes, and parentheses efficiently
+  [ ] I can search inside one file and across the project
+  [ ] I can use splits and buffers without getting lost
+  [ ] I can record a simple macro
+  [ ] I can use LazyVim's file picker and grep
+  [ ] I can use LSP rename/references when available
+
+When these are checked, start using these habits in your real projects.
+
+NEXT LESSON:  :e 15_code_fixing_drills.txt
+  Four code files (Python, HTML, YAML, shell) with deliberate bugs to fix.

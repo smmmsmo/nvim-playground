@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+  Intentionally broken HTML file for nvim practice.
+  Goal: fix mismatched tags, typo class names, broken attributes.
+  DO NOT open in a browser expecting this to render — it is editing fodder.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Custmer Dashbord</title>
+    <link rel="stylesheet" href="styels.css">
+  </head>
+  <body>
+    <header class="page-heder">
+      <h1>Custmer Dashbord</h1>
+      <nav class="main-naviagtion">
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/orders">Oders</a></li>
+          <li><a href="/profille">Profile</a></li>
+          <li><a href="/loguot">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="contnet">
+      <section class="summery-card">
+        <h2>Summery</h2>
+        <p>Welcome back, <span class="custmer-name">{{ name }}</span>.</p>
+        <p>You have <strong>{{ count }}</strong> recieved orders.</p>
+      </section>
+
+      <section class="oders-list">
+        <h2>Recent Oders</h2>
+        <table class="oder-table">
+          <thead>
+            <tr>
+              <th>Oder ID</th>
+              <th>Custmer</th>
+              <th>Statuz</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1001</td>
+              <td>alice</td>
+              <td>recieved</td>
+              <td>42.00</td>
+            </tr>
+            <tr>
+              <td>1002</td>
+              <td>bob</td>
+              <td>pendng</td>
+              <td>17.50</td>
+            </tr>
+            <tr>
+              <td>1003</td>
+              <td>carol</td>
+              <td>recieved</td>
+              <td>89.99</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="page-foter">
+      <p>&copy; 2026 Custmer Dashbord</p>
+    </footer>
+  </body>
+</html>
+
+<!--
+  DRILL TARGETS for this file
+  ---------------------------
+  Spelling fixes (use :%s, /search + ., or ciw):
+    Custmer       -> Customer        (many places, including in class names)
+    Dashbord      -> Dashboard
+    Oders / Oder  -> Orders / Order
+    Profille      -> Profile
+    Loguot        -> Logout
+    Statuz        -> Status
+    pendng        -> pending
+    recieved      -> received
+    summery-card  -> summary-card
+    Summery       -> Summary
+    contnet       -> content
+    page-heder    -> page-header
+    page-foter    -> page-footer
+    main-naviagtion -> main-navigation
+    styels.css    -> styles.css
+
+  Tag-pair drills (use ci> ci" cit ca< text objects):
+    - Use  cit  inside a <td> to change cell text
+    - Use  ci"  inside class="..." to rename a class
+    - Use  vat  to visually select an entire tag block
+
+  Repeated-edit drill:
+    Each <tr> in the tbody has the same shape. Change the third column
+    everywhere to "shipped" using a macro or :%s/recieved/shipped/g.
+-->

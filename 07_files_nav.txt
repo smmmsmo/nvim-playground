@@ -117,6 +117,29 @@ QUICK REFERENCE: Opening files summary
   Ctrl+o          jump back in history
 ────────────────────────────────────────
 
+─── LAZYVIM EQUIVALENT ─────────────────────────────────────────────────────────
+
+netrw works everywhere, but in LazyVim you'll mostly use a fuzzy picker
+and a tree explorer. The Vim primitives below are still the foundation:
+
+  <leader>ff     find files (fuzzy filename search across the project)
+  <leader>fr     recent files
+  <leader>fg     live grep across the project (text search)
+  <leader>e      toggle the file explorer (snacks/neo-tree)
+  <leader>E      open the explorer focused on the current file
+  Ctrl+o / Ctrl+i   still walk your jump history (cross-file)
+  'A             still jumps to global mark A (cross-file)
+
+When to reach for which:
+
+  - Know the filename?           <leader>ff
+  - Know a phrase inside it?     <leader>fg
+  - Want to see the tree?        <leader>e  (or :Ex for plain netrw)
+  - Coming back to where I was?  Ctrl+o   or   '{global mark}
+
+Lesson 10 (10_lazyvim_keys.txt) drills these in depth — this footer is
+just a pointer so you connect the Vim primitives to the LazyVim flow.
+
 ================================================================================
   CHECKPOINT 7
 ================================================================================
@@ -126,5 +149,6 @@ QUICK REFERENCE: Opening files summary
   [ ] I set local marks with  m{letter}  and jump to them with  '{letter}
   [ ] I set GLOBAL marks (uppercase) to jump between files
   [ ] I use  Ctrl+o  and  Ctrl+i  to walk through my jump history
+  [ ] I know <leader>ff (filename), <leader>fg (text), <leader>e (tree) in LazyVim
 
 NEXT: Read the cheat sheet!  :e 08_quick_ref.txt  ENTER

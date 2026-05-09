@@ -100,6 +100,19 @@ EXERCISE D: Search then edit (the combo)
   Also a FIX required in this part.
   And another FIX over here somewhere.
 
+─── LAZYVIM EQUIVALENT ─────────────────────────────────────────────────────────
+
+The Vim search above (/, ?, *, #) works EVERYWHERE and is what you should
+internalize first. LazyVim adds a project-wide search on top:
+
+  <leader>fg     live grep across the whole project (every file, fuzzy)
+  <leader>sw     search the WORD under your cursor across the project
+  <leader>sb     search inside the current buffer with a fuzzy picker
+
+Rule of thumb:
+  - One file?         use  /pattern  and  n / N
+  - Whole project?    use  <leader>fg
+
 ================================================================================
   CHECKPOINT 4
 ================================================================================
@@ -109,5 +122,6 @@ EXERCISE D: Search then edit (the combo)
   [ ] I can search for the word under cursor with  *  and  #
   [ ] I can clear highlights with  :noh
   [ ] I can do find-and-replace with  :%s/old/new/g
+  [ ] I know <leader>fg is for project-wide search (LazyVim)
 
 NEXT LESSON: Type  :e 05_buffers.txt  then ENTER

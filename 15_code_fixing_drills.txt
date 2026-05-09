@@ -1,0 +1,224 @@
+================================================================================
+  LESSON 15: CODE FIXING DRILLS
+  File: 15_code_fixing_drills.txt
+================================================================================
+
+This lesson is pure muscle-memory practice. You will fix four broken files,
+each in a different language. The goal is not to learn the language; the goal
+is to use the right NVIM TOOL for each kind of edit.
+
+Files you will work on:
+
+  practice/buggy_python.py     - typos, snake_case, repeated patterns
+  practice/broken_html.html    - tag content, class names, table rows
+  practice/messy_config.yaml   - typo keys, mixed indentation
+  practice/refactor_log.sh     - repeated boilerplate ripe for macros
+
+Rules:
+
+  - No mouse.
+  - No arrow keys.
+  - Each file ends with a "DRILL TARGETS" comment block listing what to fix.
+  - When you finish a file, save with :w and move on. Do not delete the
+    DRILL TARGETS block — leave it so you can re-run the drill later.
+
+================================================================================
+  DRILL 1: buggy_python.py
+================================================================================
+
+File:
+
+  practice/buggy_python.py
+
+Open it:
+
+  :e practice/buggy_python.py
+
+Goal:
+
+  - Fix every typo listed at the bottom of the file.
+  - Rename sub_total to subtotal across the file.
+  - Tighten the items list so each row has a single space after each comma.
+
+Suggested workflow:
+
+  1. /calcualte<Enter>      then  ciw  type calculate  <Esc>
+  2. /fromat<Enter>         then  ciw  type format     <Esc>
+  3. :%s/recieved/received/gc       walk through with y/n
+  4. :%s/quanity/quantity/g         no confirmation needed, only one shape
+  5. :%s/statuz/status/g
+  6. :%s/custmer/customer/g
+  7. :%s/reciept/receipt/g
+  8. :%s/lable/label/g
+  9. For sub_total -> subtotal:
+       - If LSP is attached:  put cursor on sub_total, press <leader>cr
+       - Otherwise:           :%s/\<sub_total\>/subtotal/g
+ 10. Items list cleanup:
+       - Put cursor on the first row inside items = [ ... ]
+       - Record macro:  qa  0  f,  l  ;  l  cw <space>  <Esc>  j  q
+         (this is intentionally tricky — use undo freely)
+
+Skills:
+
+  /, n, ciw, :%s, :%s/.../gc, <leader>cr, q, @, .
+
+================================================================================
+  DRILL 2: broken_html.html
+================================================================================
+
+File:
+
+  practice/broken_html.html
+
+Open it in a vertical split next to this lesson:
+
+  :vsp practice/broken_html.html
+
+Goal:
+
+  - Fix the typo class names and headings.
+  - Practice tag-aware text objects.
+  - Change every "recieved" cell in the table to "shipped".
+
+Suggested workflow:
+
+  1. :%s/Custmer/Customer/g
+  2. :%s/Dashbord/Dashboard/g
+  3. :%s/Oders/Orders/g    then    :%s/Oder/Order/g
+  4. :%s/Statuz/Status/g
+  5. :%s/Summery/Summary/g
+  6. :%s/contnet/content/g
+  7. :%s/page-heder/page-header/g
+  8. :%s/page-foter/page-footer/g
+  9. :%s/main-naviagtion/main-navigation/g
+ 10. :%s/styels.css/styles.css/g
+ 11. Tag-aware practice:
+       - Put cursor anywhere inside a <td>...</td>
+       - Press  cit   (change inner tag) and rewrite the cell text
+       - Press  ci"   inside any class="..." to rename the class
+       - Press  vat   to visually select an entire tag block
+ 12. Final pass: :%s/recieved/shipped/gc
+
+Skills:
+
+  :%s, cit, ci", ci<, vat, /, n, .
+
+================================================================================
+  DRILL 3: messy_config.yaml
+================================================================================
+
+File:
+
+  practice/messy_config.yaml
+
+Open it:
+
+  :e practice/messy_config.yaml
+
+Goal:
+
+  - Fix every typo key.
+  - Normalize indentation so each block uses exactly 2 spaces per level.
+  - Alternate roles in the owners list: lead, lead, reviewer, reviewer.
+
+Suggested workflow:
+
+  1. Show whitespace so you can see the mess:
+       :set list
+  2. Fix typo keys with /key + ciw, or :%s for the obvious ones.
+       /aplication<Enter>     ciw  application <Esc>
+       /databse<Enter>        ciw  database    <Esc>
+       /featrues<Enter>       ciw  features    <Esc>
+       :%s/recieved/received/g
+       :%s/oder/order/g
+       :%s/custmer/customer/g
+       :%s/pendng/pending/g
+  3. Indentation:
+       - Put cursor on the offending line.
+       - Press  V  to enter visual line mode, select the bad block.
+       - Press  <  or  >  to shift left/right one shiftwidth.
+       - Repeat until the file is consistent at 2 spaces per level.
+       - Use  =G  from the top to let nvim reindent if filetype is set.
+  4. Owners list macro:
+       - Put cursor on the third "role: lead" line.
+       - cw reviewer <Esc>
+       - Move down two lines (j j).
+       - .   (dot) to repeat the change on the fifth role.
+  5. Turn whitespace markers off again:
+       :set nolist
+
+Skills:
+
+  ciw, :%s, V + < / >, =, ., :set list
+
+================================================================================
+  DRILL 4: refactor_log.sh
+================================================================================
+
+File:
+
+  practice/refactor_log.sh
+
+Open it:
+
+  :e practice/refactor_log.sh
+
+Goal:
+
+  - Fix the typos in directory constants and the "succesfully" message.
+  - Use a macro to change "[step]" to "==>" in every log_step_* function.
+  - Use visual block to edit the four process_* functions in one pass.
+
+Suggested workflow:
+
+  1. Typos first:
+       :%s/incomming/incoming/g
+       :%s/OUTPT_DIR/OUTPUT_DIR/g
+       :%s/ERORR_DIR/ERROR_DIR/g
+       :%s/erorr/error/g
+       :%s/proccessing/processing/g
+       :%s/succesfully/successfully/g
+  2. Macro on log_step_*:
+       - Put cursor on the first  echo "[step]  line.
+       - qa  f[  ci[  ==>  <Esc>  j  q
+         (or use a search-based version: qa  /\[step\]<Enter>  ci[ ==> <Esc> q)
+       - Replay with  @a  until every step line is updated, or use  :%s.
+  3. Visual block on process_*:
+       - Put cursor on the first  echo "processing us-east"  line.
+       - Press  Ctrl+v
+       - Move down with  j  to cover all four similar lines.
+       - Press  c  and rewrite the prefix, then <Esc> twice.
+       - The change applies to every selected line.
+
+Skills:
+
+  :%s, ci[, ci{, q, @, Ctrl+v, c, .
+
+================================================================================
+  CROSS-FILE FINISHER
+================================================================================
+
+After fixing all four files:
+
+  1. Press  <leader>fg
+  2. Search for one of the original typos, e.g.  recieved
+  3. The picker should return ZERO results across the practice/ folder.
+  4. If a typo is still there, jump to it and fix it.
+
+This is the real-world habit: refactor across files, then sweep with grep
+to confirm nothing remains.
+
+================================================================================
+  CHECKPOINT 15
+================================================================================
+
+  [ ] I fixed every typo in buggy_python.py
+  [ ] I used cit and ci" inside HTML tags and attributes
+  [ ] I normalized YAML indentation with V and < / >
+  [ ] I recorded a macro and used Ctrl+v in refactor_log.sh
+  [ ] I used <leader>fg to confirm zero typos remain across practice/
+
+WHEN THESE FEEL EASY:
+
+  Open one of YOUR real projects in nvim and apply the same habits.
+  The skills here are the skills that survive the rest of your career.

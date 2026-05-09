@@ -1,0 +1,67 @@
+Messy Notes Practice
+====================
+
+This file is intentionally messy. Do not fix it by selecting with the mouse.
+Use search, motions, text objects, line edits, and repeat.
+
+TODO clean up this first section because it has unclear wording
+
+* call the custmer about the missing invoice
+* check the recieved payment from last week
++ update the project board
+- write a short note for the team
+  - this line is already okay
+
+
+Meeting notes:
+
+The deploy went fine but the release note was not clear.
+The release note says urgent but does not say who owns the follow up.
+The team agreed that urgent items must include owner, date, and next action.
+
+
+TODO rewrite this paragraph into two clean sentences
+
+The onboarding doc is usefull but it has many spelling errrors and several
+places where the same point is repeated repeated. The reader should be able to
+finish the first page and know what command to run, what file to open, and what
+result to expect.
+
+
+Random task list:
+
+TODO ask design for the icon
+TODO check production logs
+TODO remove old screenshots
+TODO update changelog
+
+
+Duplicate blank lines live around this area. Delete extras until the file feels
+clean but keep paragraph breaks readable.
+
+
+
+Search practice:
+
+alpha beta gamma delta epsilon
+alpha beta gamma delta epsilon
+alpha beta gamma delta epsilon
+
+Change the word gamma to center on each line. Try:
+
+  /gamma
+  cwcenter<Esc>
+  n.
+  n.
+
+
+Line joining practice:
+
+This sentence was split
+in an awkward place and should
+be joined carefully.
+
+Use J to join lines. Add or remove spaces as needed.
+
+
+End of file.
