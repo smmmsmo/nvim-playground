@@ -82,9 +82,9 @@ EXERCISE C: Equalize and close
 
 WINDOW LAYOUT REFERENCE
   ┌─────────┬─────────┐        ┌───────────────────┐
-  │         │         │        │   top window       │
+  │         │         │        │   top window      │
   │ window  │ window  │        ├───────────────────┤
-  │    1    │    2    │        │   bottom window    │
+  │    1    │    2    │        │   bottom window   │
   └─────────┴─────────┘        └───────────────────┘
     :vsp (vertical)               :sp (horizontal)
 
@@ -123,11 +123,11 @@ shortcuts; it does not remove anything.
   CHECKPOINT 6
 ================================================================================
 
-  [ ] I can split horizontally with  :sp  or  Ctrl+w s
-  [ ] I can split vertically with  :vsp  or  Ctrl+w v
-  [ ] I can move between windows with  Ctrl+w hjkl  or  Ctrl+w w
-  [ ] I can close the current window with  Ctrl+w c
-  [ ] I can open a file directly in a split with  :vsp filename
-  [ ] I know LazyVim lets me jump windows with plain Ctrl+hjkl
+  [x] I can split horizontally with  :sp  or  Ctrl+w s
+  [x] I can split vertically with  :vsp  or  Ctrl+w v
+  [x] I can move between windows with  Ctrl+w hjkl  or  Ctrl+w w
+  [x] I can close the current window with  Ctrl+w c
+  [x] I can open a file directly in a split with  :vsp filename
+  [x] I know LazyVim lets me jump windows with plain Ctrl+hjkl
 
 NEXT LESSON: Type  :e 07_files_nav.txt  then ENTER

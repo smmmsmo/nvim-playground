@@ -1,0 +1,24 @@
+
+[x]  w   jump to start of NEXT word      (Word forward)
+[x]  b   jump to start of PREV word      (Back)
+[x]  e   jump to END of current word
+
+
+[x]  0   go to the very START of the line  (zero)
+[x]  $   go to the very END of the line
+
+
+[x]  gg  jump to the TOP of the file     (press g twice quickly)
+[x]  G   jump to the BOTTOM of the file  (capital G)
+[x]  {   jump up one paragraph/blank-line
+[x]  }   jump down one paragraph/blank-line
+
+
+[x]  Ctrl+d   scroll DOWN half a screen
+[x]  Ctrl+u   scroll UP half a screen
+[x]  Ctrl+f   scroll down Full screen
+[x]  Ctrl+b   scroll Back full screen
+[x]  zz       center the current line on screen (very handy!)
+
+
+
